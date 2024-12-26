@@ -1,0 +1,8 @@
+2024-11-16 22:08:17.872409 - consultation de la page
+2024-11-16 22:08:32.107376 - consultation de la page
+2024-11-16 22:08:37.436625 - consultation de l'historique
+2024-11-16 22:08:47.254103 - consultation de la page
+2024-11-16 22:08:59.754745 - consultation de la page
+2024-11-16 22:11:10.318843 - consultation de la page de jeu
+2024-11-16 22:11:12.414431 - consultation de l'historique
+2024-11-16 22:11:19.939494 - consultation de l'historique

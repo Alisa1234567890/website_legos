@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grille 8x9</title>
+</head>
+<body>
+<h2>Le jeu de placement de briques (type Lego)</h2>
+
+<p id="parag_description">
+	Voici les règles détaillées : le ou la joueuse possède une grille, sur laquelle on trouve des cases vides et des cases cibles. La pioche contient 4 briques disponibles. Pour gagner, il faut que toutes les cases cibles de la grille soient recouvertes par des briques. À chaque tour, la joueuse sélectionne une brique dans la pioche et peut :
+<br>
+• soit la placer sur sa grille (à un emplacement approprié, i.e., chaque case de la brique recouvre une case cible de la grille encore inoc- cupée). Par exemple, une brique de 2×3 nécessite 6 cases cibles disponibles pour être placée ;
+<br>
+• soit la défausser (i.e., la retirer de la pioche) afin qu’elle soit rem- placée par une nouvelle brique (tirée aléatoirement dans la base de données).
+<br>
+	
+</p>
+
+<p>Cette page d’accueil affiche également des statistiques, notamment :</p>
+<ul>
+	<li>Nombre d’instances pour 3 tables de votre choix </li>
+	<li>Top-5 des couleurs ayant le plus de briques</li>
+	<li>Pour chaque joueuse, son score minimal et son score maximal</li>
+	<li>Parties avec le plus petit et plus grand nombre de pièces défaussées, de pièces piochées</li>
+	<li>Le nombre moyen de tours, pour chaque couple (mois, année)</li>
+	<li>Top-3 des parties dans lesquelles les plus grandes pièces (longueur × largeur) ont été placées, avec un tri décroissant sur le nombre de pièces utilisées.</li>
+</ul>
+<h5>Nombre d’instances pour 3 tables de votre choix: </h5>
+<form method="post">
+	<label for="tab1">Tableau 1: </label>
+	<input type="text" name="tab1" id="tab1" placeholder="Tableau 1" required />
+	<br/>
+	<label for="tab2">Tableau 2: </label>
+	<input type="text" name="tab2" id="tab2" placeholder="Tableau 2" required />
+	<br/>
+	<label for="tab3">Tableau 3: </label>
+	<input type="text" name="tab3" id="tab3" placeholder="Tableau 3" required />
+	<br/>
+	<input type="submit" name="bouton_validertab" value="Afficher"/>
+</form>
+<p>
+{% if SESSION['tabinstances'] %} 
+    {{SESSION['tab1'][0]}}: {{SESSION['tabinstances'][0]}},
+    {{SESSION['tab2'][0]}}: {{SESSION['tabinstances'][1]}},
+    {{SESSION['tab3'][0]}}: {{SESSION['tabinstances'][2]}}
+    {% endif %}</p>
+<br/><br/>
+<h5>Top-5 des couleurs ayant le plus de briques: </h5>
+<form method="post">
+	<input type="submit" name="bouton_validercouleur" value="Afficher"/>
+</form>
+<p>
+{% if SESSION['5couleurs'] %} 
+    <div class="color-container">
+    {% for i in range(5) %}
+        <div class="color-rectangle" style="background-color: {{ SESSION['5couleurs'][i][0] }};">
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}
+</p>
+
+<br/><br/>
+<h5>Score minimal et maximal de chaque joueuse: </h5>
+<form method="post">
+	<input type="submit" name="bouton_validerscore" value="Afficher"/>
+</form>
+<p>
+{% if SESSION['score_maxmin'] %}
+    <div class="score-container">
+    {% for row in SESSION['score_maxmin'] %}
+        <p>Joueur : {{ row[0] }} - Score Min : {{ row[1] }} - Score Max : {{ row[2] }}</p>
+    {% endfor %}
+    </div>
+{% endif %}
+</p>
+<br/><br/>
+<h5>ID de parties avec le plus petit et plus grand nombre de pièces défaussées, de pièces piochées: </h5>
+<form method="post">
+	<input type="submit" name="bouton_validergp" value="Afficher"/>
+</form>
+<p>
+{% if SESSION['partie_stats'] %}
+    <div class="partie-stats">
+        <p>Max défaussée : {{ SESSION['partie_stats']['max_defaussee'][0][0] }}</p>
+        <p>Min défaussée : {{ SESSION['partie_stats']['min_defaussee'][0][0] }}</p>
+        <p>Max piochée : {{ SESSION['partie_stats']['max_piochee'][0][0] }}</p>
+        <p>Min piochée : {{ SESSION['partie_stats']['min_piochee'][0][0] }}</p>
+    </div>
+{% endif %}
+</p>
+<br/><br/>
+<h5>Le nombre moyen de tours, pour chaque couple (mois, année): </h5>
+<form method="post">
+	<input type="submit" name="bouton_validertours" value="Afficher"/>
+</form>
+<p>
+{% if SESSION['moyenne_tours'] %}
+    <table>
+        <thead>
+            <tr>
+                <th>Année</th>
+                <th>Mois</th>
+                <th>Moyenne des tours</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in SESSION['moyenne_tours'] %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</p>
+<br/><br/>
+<h5>Top-3 des parties dans lesquelles les plus grandes pièces ont été placées: </h5>
+<form method="post">
+	<input type="submit" name="bouton_validerparties" value="Afficher"/>
+</form>
+<p>
+{% if SESSION['top_parties'] %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID partie</th>
+                <th>Surface Max</th>
+                <th>Nombre des pieces</th>
+  
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in SESSION['top_parties'] %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</p>
+<br/><br/>
+<h2>Voici la grille :</h2>
+ <div class="grid">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div class=hachured></div><div class=hachured></div><div></div><div></div><div class=hachured></div><div class=hachured></div><div></div><div></div>
+        <div></div><div class=hachured></div><div></div><div class=hachured></div><div></div><div class=hachured></div><div></div><div class=hachured></div><div></div>
+        <div></div><div class=hachured></div><div class=hachured></div><div class=hachured></div><div></div><div class=hachured></div><div></div><div class=hachured></div><div></div>
+        <div></div><div class=hachured></div><div class=hachured></div><div class=hachured></div><div></div><div class=hachured></div><div></div><div class=hachured></div><div></div>
+        <div></div><div class=hachured></div><div></div><div class=hachured></div><div></div><div class=hachured></div><div></div><div class=hachured></div><div></div>
+        <div></div><div class=hachured></div><div class=hachured></div><div></div><div></div><div class=hachured></div><div class=hachured></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+<br>
+<div>
+	<img src="legos/static/img/top-series.jpg" />
+</div>
+
+{% include 'message.html' %}
+
+
+{% endblock %}
+</body>

@@ -1,0 +1,47 @@
+2024-12-09 16:16:42.172034 - consultation de page d'acceuil
+2024-12-09 16:18:08.073393 - consultation de la page de jeu
+2024-12-09 16:18:12.004627 - consultation de la page de jeu
+2024-12-09 16:18:17.922014 - consultation de la page de jeu
+2024-12-09 16:24:38.797412 - consultation de la page de jeu
+2024-12-09 16:52:45.705109 - consultation de la page de jeu
+2024-12-09 16:52:52.688233 - consultation de la page de jeu
+2024-12-09 16:52:58.388939 - consultation de la page de jeu
+2024-12-09 16:53:02.054570 - consultation de la page de jeu
+2024-12-09 16:53:04.853605 - consultation de la page de jeu
+2024-12-09 16:53:11.105471 - consultation de la page de jeu
+2024-12-09 16:53:16.119547 - consultation de la page de jeu
+2024-12-09 16:53:23.421913 - consultation de la page de jeu
+2024-12-09 16:53:27.205734 - consultation de la page de jeu
+2024-12-09 16:53:34.273373 - consultation de la page de jeu
+2024-12-09 16:53:37.889250 - consultation de la page de jeu
+2024-12-09 16:53:41.374196 - consultation de la page de jeu
+2024-12-09 16:53:48.089675 - consultation de la page de jeu
+2024-12-09 16:53:53.873943 - consultation de la page de jeu
+2024-12-09 16:53:57.159465 - consultation de la page de jeu
+2024-12-09 16:53:59.791449 - consultation de la page de jeu
+2024-12-09 16:54:03.057054 - consultation de la page de jeu
+2024-12-09 16:54:05.690770 - consultation de la page de jeu
+2024-12-09 16:54:09.156864 - consultation de la page de jeu
+2024-12-09 16:54:12.723573 - consultation de la page de jeu
+2024-12-09 16:54:15.623992 - consultation de la page de jeu
+2024-12-09 16:54:23.241893 - consultation de la page de jeu
+2024-12-09 16:54:36.284077 - consultation de la page de jeu
+2024-12-09 16:54:40.242527 - consultation de la page de jeu
+2024-12-09 16:54:43.743051 - consultation de la page de jeu
+2024-12-09 16:54:47.762883 - consultation de la page de jeu
+2024-12-09 16:54:55.475276 - consultation de la page de jeu
+2024-12-09 16:55:00.157834 - consultation de la page de jeu
+2024-12-09 16:55:06.096555 - consultation de la page de jeu
+2024-12-09 16:55:11.460188 - consultation de la page de jeu
+2024-12-09 16:55:16.649420 - consultation de la page de jeu
+2024-12-09 16:55:28.033109 - consultation de la page de jeu
+2024-12-09 16:55:36.919076 - consultation de la page de jeu
+2024-12-09 16:55:42.086530 - consultation de page d'acceuil
+2024-12-09 16:55:50.910511 - consultation de page d'acceuil
+2024-12-09 16:55:54.174920 - consultation de page d'acceuil
+2024-12-09 16:55:57.074254 - consultation de page d'acceuil
+2024-12-09 16:56:07.521676 - consultation de page d'acceuil
+2024-12-09 16:56:10.820919 - consultation de page d'acceuil
+2024-12-09 16:56:14.904384 - consultation de page d'acceuil
+2024-12-09 16:56:18.268475 - consultation de l'historique
+2024-12-09 16:56:23.084681 - consultation de l'historique

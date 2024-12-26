@@ -1,0 +1,50 @@
+2024-12-09 11:59:08.516558 - consultation de page d'acceuil
+2024-12-09 11:59:10.131441 - consultation de la page de jeu
+2024-12-09 11:59:31.029169 - consultation de la page de jeu
+2024-12-09 11:59:37.329067 - consultation de la page de jeu
+2024-12-09 11:59:42.712440 - consultation de la page de jeu
+2024-12-09 11:59:46.113843 - consultation de la page de jeu
+2024-12-09 11:59:50.579567 - consultation de la page de jeu
+2024-12-09 11:59:53.864216 - consultation de la page de jeu
+2024-12-09 11:59:57.296149 - consultation de la page de jeu
+2024-12-09 12:00:04.897964 - consultation de la page de jeu
+2024-12-09 12:00:07.945021 - consultation de la page de jeu
+2024-12-09 12:00:14.280703 - consultation de la page de jeu
+2024-12-09 12:00:18.613946 - consultation de la page de jeu
+2024-12-09 12:00:21.746449 - consultation de la page de jeu
+2024-12-09 12:00:28.979382 - consultation de la page de jeu
+2024-12-09 12:00:31.128747 - consultation de la page de jeu
+2024-12-09 12:00:33.678557 - consultation de la page de jeu
+2024-12-09 12:00:35.763065 - consultation de la page de jeu
+2024-12-09 12:00:38.929368 - consultation de la page de jeu
+2024-12-09 12:00:41.195051 - consultation de la page de jeu
+2024-12-09 12:00:44.295787 - consultation de la page de jeu
+2024-12-09 12:00:46.712306 - consultation de la page de jeu
+2024-12-09 12:00:49.677510 - consultation de la page de jeu
+2024-12-09 12:00:53.944942 - consultation de la page de jeu
+2024-12-09 12:01:02.028424 - consultation de la page de jeu
+2024-12-09 12:01:05.611036 - consultation de la page de jeu
+2024-12-09 12:01:10.391177 - consultation de la page de jeu
+2024-12-09 12:01:18.179437 - consultation de la page de jeu
+2024-12-09 12:01:23.108871 - consultation de la page de jeu
+2024-12-09 12:01:29.397296 - consultation de la page de jeu
+2024-12-09 12:01:32.915009 - consultation de la page de jeu
+2024-12-09 12:01:36.378028 - consultation de la page de jeu
+2024-12-09 12:01:44.292381 - consultation de la page de jeu
+2024-12-09 12:01:57.977062 - consultation de la page de jeu
+2024-12-09 12:02:05.615562 - consultation de la page de jeu
+2024-12-09 12:02:09.376067 - consultation de la page de jeu
+2024-12-09 12:02:21.954379 - consultation de page d'acceuil
+2024-12-09 12:02:37.101219 - consultation de page d'acceuil
+2024-12-09 12:02:40.542102 - consultation de page d'acceuil
+2024-12-09 12:02:47.537085 - consultation de page d'acceuil
+2024-12-09 12:02:50.201232 - consultation de page d'acceuil
+2024-12-09 12:02:56.033939 - consultation de page d'acceuil
+2024-12-09 12:03:02.472225 - consultation de page d'acceuil
+2024-12-09 12:03:08.410793 - consultation de la page de jeu
+2024-12-09 12:03:11.875481 - consultation de la page de jeu
+2024-12-09 12:03:15.942652 - consultation de la page de jeu
+2024-12-09 12:03:19.061516 - consultation de la page de jeu
+2024-12-09 12:03:21.626226 - consultation de la page de jeu
+2024-12-09 12:04:19.714251 - consultation de l'historique
+2024-12-09 12:04:22.251563 - consultation de l'historique

@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat({{ SESSION['largeur'] }}, 70px);
+            grid-template-rows: repeat({{ SESSION['longeur'] }}, 70px);
+            gap: 1px;
+        }
+
+        .grid .hachured {
+            background-color: #FFFFFF;
+            background-image: repeating-linear-gradient(
+                45deg, 
+                #000 0, 
+                #000 4px, 
+                #FFFFFF 4px, 
+                #FFFFFF 8px
+            );
+        }
+    </style>
+</head>
+
+<body>
+<h2>Dimensions de la grille: 
+    {% if SESSION['largeur'] %} 
+        {{ SESSION['largeur'] }} x 
+    {% endif %}  
+    {% if SESSION['longeur'] %} 
+        {{ SESSION['longeur'] }} 
+    {% endif %}
+</h2>
+
+<form method="post">
+    <label for="largeur">Largeur de grille: </label>   
+    <input type="number" name="largeur_grille" id="largeur_grille" placeholder="Largeur de la grille" required min="1" />
+    <br/><br/>
+    <label for="longeur">Longueur de grille: </label> 
+    <input type="number" name="longeur_grille" id="longeur_grille" placeholder="Longueur de la grille" required min="1" />
+    <br/>
+    <input type="submit" name="bouton_validergrille" value="Ajouter"/>
+</form>
+
+{% if SESSION['erreurdim'] %}
+    <p>{{ SESSION['erreurdim'] }}</p>
+{% endif %}
+<br/><br/>
+
+<h2>Nombre des tours maximum: {% if SESSION['tours_max'] %} {{ SESSION['tours_max'] }} {% endif %}</h2>
+<form method="post">
+    <label for="nbre_tours">Nombre de tours:</label>
+    <input type="number" name="nbre_tours" id="nbre_tours" placeholder="Nombre des tours" required min="1"/>
+    <br/>
+    <input type="submit" name="bouton_validertours" value="Ajouter" />
+</form>
+
+<br/><br/>
+
+<h2>Mode: {% if SESSION['mode'] %} {{ SESSION['mode'] }} {% endif %}</h2>
+<form method="post">
+    <label for="id1">Facile</label>
+    <input type="radio" name="mode" id="id1" value="facile" required />
+    <label for="id2">Difficile</label>
+    <input type="radio" name="mode" id="id2" value="difficile" required />
+    <br/>
+    <input type="submit" name="bouton_validermode" value="Ajouter" />
+</form>
+
+<br/>
+
+<form method="post">
+    <label for="prenom">Prénom:</label>
+    <input type="text" name="prenom" id="prenom" placeholder="Prénom" required />
+    <input type="submit" name="bouton_validerprenom" value="Ajouter" />
+</form>
+
+{% if SESSION['longeur'] and SESSION['largeur'] %}
+    <form method="POST">
+        <div class="grid">
+            {% for i in range(SESSION['longeur']) %}
+                {% for j in range(SESSION['largeur']) %}
+                    <div class="{% if SESSION['tab'][i][j] == 1 %} hachured {% endif %}" 
+                         style="{% if SESSION['tabcouleur'] %}background-color: {{ SESSION['tabcouleur'][i][j] }} {% endif %}">
+                        {% if SESSION['tab'][i][j] not in [0, 1] %}
+                            {{ SESSION['tab'][i][j] }}
+                        {% endif %}
+                        <input type="hidden" name="checkbox_{{ i }}_{{ j }}" value="off">
+                        <input type="checkbox" name="checkbox_{{ i }}_{{ j }}" id="checkbox_{{ i }}_{{ j }}" value="on">
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        {% if SESSION['taille_brique'] %}
+            <input type="submit" name="bouton_actionplacer" value="Appliquer" />
+        {% endif %}
+    </form>
+
+    <p>{{ SESSION['message_tab'] }}</p>
+{% else %}
+    <p>Veuillez soumettre la grille d'abord.</p>
+{% endif %}
+
+<h2>{% if SESSION['score'] %} Score: {{ SESSION['score'] }} {% endif %} </h2>
+<h2>Nombre des tours restants: {% if SESSION['tours_rest'] %} {{ SESSION['tours_rest'] }} {% endif %}</h2>
+
+<h2>Tirage des briques:</h2>
+{% if SESSION['start_tir'] == True %}
+    <form method="post">
+        <input type="submit" name="start" value="Start">
+    </form>
+{% else %}
+    {% if not mode %}
+        <h3></h3>
+    {% else %}
+        <h3>Il est possible de faire le tirage des briques qu'une seule fois.</h3>
+    {% endif %}
+{% endif %}
+
+<h2>Liste des briques aléatoires:</h2>
+<h2>{% if SESSION['message_mode'] %} {{ SESSION['message_mode'] }} {% endif %}</h2>
+<h1>
+    {% for i in SESSION['ALEA'] %}
+        <form method="post">
+            <input type="submit" name="bouton_pressed" value="id:{{ i[0] }}, longueur:{{ i[1] }}, largeur:{{ i[2] }}, hauteur:{{ i[3] }}, couleur:{{ i[4] }}"
+                {% if i[4] != "#000000" %} style="background-color: {{ i[4] }};" {% endif %}>
+            <input type="hidden" name="idi" value="{{ i[0] }}">
+        </form>
+    {% endfor %}
+</h1>
+
+{% if SESSION['BRIQUE'] %} 
+    <h3>Brique sélectionnée:</h3>
+    <p> id: {{ SESSION['BRIQUE'][0] }}, longueur: {{ SESSION['BRIQUE'][1] }}, largeur: {{ SESSION['BRIQUE'][2] }}, hauteur: {{ SESSION['BRIQUE'][3] }}</p>
+{% endif %}
+
+{% if SESSION['CHOISI'] %} 
+    <form method="post">
+        <label for="id1">Placer sur grille</label>
+        <input type="radio" name="actionbrique" id="id1" value="placer" required />
+        <label for="id2">Défausser</label>
+        <input type="radio" name="actionbrique" id="id2" value="defausser" required />
+        <br/>
+        <input type="submit" name="bouton_actionbr" value="Appliquer" />
+    </form>
+{% endif %}
+
+<p>{% if SESSION['place'] %} {{ SESSION['place'] }} {% endif %}</p>
+<h3>{% if SESSION['resultat'] %} {{ SESSION['resultat'] }} {% endif %}</h3>
+
+<form method="post">
+    <input type="submit" name="bouton_abandonner" value="Abandonner">
+</form>
+<form method="post">
+    <input type="submit" name="bouton_recommencer" value="Recommencer">
+</form>
+
+{% endblock %}
+</body>
